@@ -30,6 +30,7 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline:2px solid var
 .menu-button,.mobile-nav { display:none; }
 
 .hero { position:relative; border-bottom:1px solid var(--border); background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size:100% 64px,8.33vw 100%; overflow:hidden; }
+.hero::before { content:''; position:absolute; z-index:0; inset:0 0 auto; height:55vh; background:radial-gradient(ellipse 80% 100% at 50% -8%,color-mix(in srgb,var(--primary) 48%,transparent),transparent 72%); pointer-events:none; animation:aura-breathe 5s ease-in-out infinite; }
 .compact-hero { min-height:760px; padding:130px 4vw 70px; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:6vw; }
 .hero-centered { grid-template-columns:1fr; }
 .hero-centered .hero-copy { width:min(920px,100%); margin:0 auto; text-align:center; }
@@ -198,10 +199,10 @@ footer { min-height:230px; padding:55px 4vw 25px; display:grid; grid-template-co
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
 /* Centered VYR questionnaire */
-.quiz-flow{position:relative;isolation:isolate;min-height:100dvh;padding:0 5vw 48px;overflow:hidden;background-color:var(--background);background-image:linear-gradient(180deg,color-mix(in srgb,var(--primary) 10%,transparent) 0,transparent 42%),linear-gradient(color-mix(in srgb,var(--border) 22%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--border) 22%,transparent) 1px,transparent 1px);background-size:100% 100%,100% 72px,8.33vw 100%}
-.quiz-flow::before{content:'';position:absolute;z-index:-2;inset:0 0 auto;height:47vh;background:radial-gradient(ellipse at 50% -12%,color-mix(in srgb,var(--primary) 31%,transparent),transparent 67%);opacity:.72;animation:aura-breathe 5s ease-in-out infinite}
+.quiz-flow{position:relative;isolation:isolate;min-height:100dvh;padding:0 5vw 48px;overflow:hidden;background-color:var(--background);background-image:linear-gradient(180deg,color-mix(in srgb,var(--primary) 22%,transparent) 0,transparent 48%),linear-gradient(color-mix(in srgb,var(--border) 22%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--border) 22%,transparent) 1px,transparent 1px);background-size:100% 100%,100% 72px,8.33vw 100%}
+.quiz-flow::before{content:'';position:absolute;z-index:-2;inset:0 0 auto;height:62vh;background:radial-gradient(ellipse 80% 100% at 50% -8%,color-mix(in srgb,var(--primary) 55%,transparent),transparent 72%);opacity:1;animation:aura-breathe 5s ease-in-out infinite}
 .quiz-flow::after{content:'VYR';position:absolute;z-index:-1;top:20%;left:50%;color:var(--foreground);font-size:min(34vw,420px);font-weight:900;line-height:.7;letter-spacing:-.1em;opacity:.018;transform:translateX(-50%);pointer-events:none;animation:brand-drift 10s ease-in-out infinite}
-.quiz-aura{position:absolute;z-index:-1;top:74px;left:50%;width:min(820px,90vw);height:260px;transform:translateX(-50%);background:radial-gradient(ellipse,color-mix(in srgb,var(--primary) 12%,transparent),transparent 70%);filter:blur(24px);pointer-events:none}
+.quiz-aura{position:absolute;z-index:-1;top:60px;left:50%;width:min(1100px,95vw);height:420px;transform:translateX(-50%);background:radial-gradient(ellipse,color-mix(in srgb,var(--primary) 30%,transparent),transparent 68%);filter:blur(40px);pointer-events:none}
 .flow-top{position:relative;z-index:5;width:min(920px,100%);height:78px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(210px,430px) 1fr;gap:28px;border:0;color:var(--muted-foreground)}
 .flow-top-side{display:flex;align-items:center;gap:20px}.flow-top-side .wordmark{padding-left:20px;border-left:1px solid var(--border)}
 .flow-top>.mono-note{text-align:right}.flow-progress{height:10px;border-radius:999px;overflow:hidden;background:color-mix(in srgb,var(--foreground) 9%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--foreground) 5%,transparent)}
@@ -220,7 +221,7 @@ footer { min-height:230px; padding:55px 4vw 25px; display:grid; grid-template-co
 .keyboard-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin:22px 0 0!important;opacity:.72}.keyboard-hint svg{width:13px;color:var(--primary);animation:hint-pulse 2s ease-in-out infinite}
 @keyframes choice-rise{from{opacity:0;transform:translate3d(0,28px,0) scale(.97)}to{opacity:1;transform:none}}
 @keyframes progress-shine{0%,25%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
-@keyframes aura-breathe{50%{opacity:.45;transform:scaleY(1.12)}}
+@keyframes aura-breathe{50%{opacity:.7;transform:scaleY(1.12)}}
 @keyframes brand-drift{50%{transform:translateX(-50%) translateY(14px);letter-spacing:-.075em}}
 @keyframes hint-pulse{50%{opacity:.35;transform:scale(.82)}}
 @media(max-width:720px){.quiz-flow{padding:0 18px 28px;background-size:100% 100%,100% 64px,25vw 100%}.flow-top{height:68px;grid-template-columns:auto 1fr auto;gap:14px}.flow-top-side{gap:10px}.flow-top-side .wordmark{padding-left:0;border:0}.flow-top-side .back-button+ .wordmark{display:none}.flow-progress{height:8px}.quiz-panel{min-height:calc(100dvh - 96px);padding:32px 0 18px}.quiz-panel .question-copy h1{font-size:clamp(34px,10vw,46px)}.question-copy p{font-size:14px}.quiz-panel .answer-grid button{min-height:72px;padding:11px 13px;border-radius:17px;grid-template-columns:44px 1fr 20px;gap:12px}.answer-icon{width:44px!important;height:44px;border-radius:12px}.quiz-panel .answer-grid b{font-size:15px}.quiz-panel .answer-grid button:hover,.quiz-panel .answer-grid button.selected{transform:translateX(3px)}.keyboard-hint{display:none}}
